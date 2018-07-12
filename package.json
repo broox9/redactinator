@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon server/server.js",
-    "watch": "concurrently \"npm run watch:css\" \"npx webpack -w\"",
-    "build:css": "parcel build ./client/css/main.scss -d ./public/css -o main.css --no-cache",
-    "watch:css": "parcel watch ./client/css/main.scss -d ./public/css -o main.css --no-cache"
+    "watch:js": "npx webpack -w",
+    "build:css": "./node_modules/.bin/node-sass ./client/css/main.scss -o ./public/css --output-style expanded",
+    "watch:css": "npx node-sass ./client/css/main.scss -o ./public/css --output-style expanded -w"
   },
   "keywords": [],
   "author": "",

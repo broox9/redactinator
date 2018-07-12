@@ -2,11 +2,17 @@
   box-sizing: border-box;
 }
 
+$blue : #385399;
+$darkBlue: #23408e;
+$lightGray: #ccc;
+$textColor: #333;
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: San Francisco, Roboto, Cabin, Arial, sans-serif;
   font-size: 16px;
+  color: $textColor;
 }
 
 ul {
@@ -19,10 +25,10 @@ button, .button-link {
   display: inline-block;
   padding: 0.5em 1em;
   margin: 0 0.5em;
-  background-color: #385399;
+  background-color: $blue;
   border: none;
   text-decoration: none;
-  // box-shadow: #bbb 2px 2px 2px;
+  box-shadow: #bbb 2px 2px 2px;
   color: white;
   cursor: pointer;
   font-size: 1em;
@@ -31,12 +37,9 @@ button, .button-link {
   box-sizing: content-box;
 
   &:hover { 
-    background-color: #23408e; 
+    background-color: $darkBlue; 
   } 
 }
-
-
-
 
 .content {
   margin: 0 auto;
@@ -46,11 +49,10 @@ button, .button-link {
   align-items: stretch;
   width: 100%;
   height: 100%;
-  border: 1px solid green;
   
   .image-control-panel {
     flex-basis: 34%;
-    background-color: #ccc;
+    background-color: $lightGray;
   }
 
   .image-section {

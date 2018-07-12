@@ -8,11 +8,11 @@ router.get('/get_consults', (req, res) => {
   res.status(200).send(mockDB.getConsults())
 })
 
-router.post('/update_image', (req, res) => {
-  const { img_id, redaction_status } = req.body;
+router.put('/update_image', (req, res) => {
+  const { img_id, redaction_status, censors = null } = req.body;
   console.log(req.body)
 
-  const newImg = mockDB.saveImage(img_id, redaction_status)
+  const newImg = mockDB.saveImage(img_id, redaction_status, censors)
 
   if (newImg) {
     res.status(202).json(req.body)
@@ -22,6 +22,7 @@ router.post('/update_image', (req, res) => {
 
 })
 
+
 router.get('/reset_data', (req, res) => {
   mockDB.reset()
   res.redirect('/api/get_consults')
@@ -29,5 +30,3 @@ router.get('/reset_data', (req, res) => {
 
 
 module.exports = router
-
-

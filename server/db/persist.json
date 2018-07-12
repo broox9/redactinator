@@ -7,8 +7,23 @@
         {
           "url": "/images/elderly_lady.jpg",
           "img_id": 2001,
-          "redaction_status": "incomplete",
-          "censors": []
+          "redaction_status": "redaction_complete",
+          "censors": [
+            {
+              "id": 1,
+              "top": 173,
+              "left": 385,
+              "height": "40px",
+              "width": "40px"
+            },
+            {
+              "id": 2,
+              "top": 135,
+              "left": 362,
+              "height": "40px",
+              "width": "40px"
+            }
+          ]
         },
         {
           "url": "/images/elderly_lady_2.jpg",

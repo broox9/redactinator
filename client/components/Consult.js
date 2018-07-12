@@ -40,7 +40,7 @@ class Entry extends React.Component {
   setNoRedaction = () => {
     const { url, img_id, redaction_status } = this.props
     fetch('/api/update_image', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },

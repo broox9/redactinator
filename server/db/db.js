@@ -24,13 +24,16 @@ class MockDB {
     this.writeData(JSON.stringify(originalData))
   }
 
-  saveImage(img_id, redaction_status) {
+  saveImage(img_id, redaction_status, censors = null) {
     const image = this.getImage(img_id)
     if (!image) {
       return null;
     }
 
     image.redaction_status = redaction_status
+    if (image.censors) {
+      image.censors = censors;
+    }
     this.images.set(img_id, image);
     this.writeData()
     return image;
