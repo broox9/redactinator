@@ -1,0 +1,40 @@
+{
+  "name": "redactinator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server/server.js",
+    "watch": "concurrently \"npm run watch:css\" \"npx webpack -w\"",
+    "build:css": "parcel build ./client/css/main.scss -d ./public/css -o main.css --no-cache",
+    "watch:css": "parcel watch ./client/css/main.scss -d ./public/css -o main.css --no-cache"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.9.2",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.17.5",
+    "parcel-bundler": "^1.9.4",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-draggable": "^3.0.5",
+    "react-icons-kit": "^1.1.5",
+    "serve-static": "^1.13.2",
+    "styled-components": "^3.3.3"
+  }
+}

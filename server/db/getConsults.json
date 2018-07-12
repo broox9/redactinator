@@ -1,0 +1,28 @@
+{
+  "consults": [
+    {
+      "id": 100,
+      "status": "pending",
+      "images": [
+        {
+          "url": "/images/elderly_lady.jpg",
+          "img_id": 2001,
+          "redaction_status": "incomplete",
+          "censors": []
+        },
+        {
+          "url": "/images/elderly_lady_2.jpg",
+          "img_id": 2002,
+          "redaction_status": "incomplete",
+          "censors": []
+        },
+        {
+          "url": "/images/elderly_lady_in_bed.jpg",
+          "img_id": 2003,
+          "redaction_status": "incomplete",
+          "censors": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redactinator</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    var PageData = {
+      img_id: <%= img_id %>,
+      censors: <%= JSON.stringify(censors) %>
+    };
+
+    function submitImage(img_id) {
+      fetch('/api/update_image', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify({
+          img_id,
+          redaction_status: "redaction_complete"
+        })
+      })
+        .then(res => {
+          console.log('Success', res.json())
+          window.location = '/'
+        })
+        .catch(console.error)
+    }
+
+    function onDragOver(e) {
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'move'
+      console.log(e)
+    }
+
+    function onDrop(e) {
+      console.log(e)
+    }
+
+    function dragStartEvent(e) {
+      console.log(e)
+      e.dataTransfer.setData('text/html', e.target);
+      e.dropEffect = 'move';
+    }
+  </script>
+</head>
+
+<body>
+  <main id="root">
+    <header>
+      <h3>
+        Redaction #
+        <%= img_id %>
+      </h3>
+    </header>
+
+    <section class="content">
+      <section>
+        <div class="image-section">
+          <div class="image-section__dropzone" ondragover="onDragOver(event)" ondrop="onDrop(event)"></div>
+          <img id="main-image" src="<%= url %>" />
+        </div>
+
+
+
+        <div>
+          <button onclick="submitImage(<%= img_id %>)" id="submit-image">Done</button>
+          <a href="/">Back to Home </a>
+        </div>
+      </section>
+
+
+      <aside class="image-control-panel">
+
+        <button id="new-censor">New Censor</button>
+
+      </aside>
+    </section>
+  </main>
+  <script src="/js/redact.bundle.js" type="text/javascript"></script>
+</body>
+
+</html>
